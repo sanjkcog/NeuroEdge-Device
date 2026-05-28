@@ -1,0 +1,8 @@
+{
+  "env": {
+    "ROBOFLOW_API_KEY": "",
+    "HF_TOKEN": "",
+    "KAGGLE_USERNAME": "",
+    "KAGGLE_KEY": ""
+  }
+}
