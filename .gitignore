@@ -1,0 +1,122 @@
+# Personal environment — never commit
+.env
+.env.local
+.env.remote
+
+# ──────────────────────────────────────────────────────
+# Claude Code — installed by agentic-assets setup script, NOT committed
+# Re-created by: python agentic-assets/setup_neuroedge_agentic_tools.py --project . --type device
+# Developers not using Claude Code can ignore this entire section.
+# ──────────────────────────────────────────────────────
+
+# Project Claude instructions (from projects/device/CLAUDE.md in Assets)
+CLAUDE.md
+
+# Agents (SDLC + SOFTWARE) installed flat by setup script
+.claude/agents/
+
+# Generic slash commands from Assets
+.claude/commands/*.md
+
+# Project-specific slash commands from projects/device/commands/ in Assets
+.claude/commands/neuroedge/
+
+# Claude Code settings (created from hook-config.json on first run)
+.claude/settings.json
+
+# API keys and local overrides — never commit
+.claude/settings.local.json
+
+# Accumulated TS edit list (runtime scratch file)
+.claude/.ts-edited-files
+
+# Hook scripts
+scripts/hooks/
+
+# Health checker
+health_check/
+
+# AgenticAI Assets — Windows junction pointing to NeuroEdge_AgenticAI_Assets repo
+# Re-create after clone: New-Item -ItemType Junction -Path agentic-assets -Target <assets-path>
+agentic-assets/
+
+# ──────────────────────────────────────────────────────
+# C++ / CMake / Conan build artifacts
+# ──────────────────────────────────────────────────────
+
+# CMake out-of-source build directories
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+
+# Compiled object files and static/shared libs
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.lib
+*.exp
+
+# Executables
+*.exe
+*.out
+
+# Conan package manager artifacts
+.conan/
+conan_cache/
+conanbuildinfo.*
+conanrunenv.*
+conaninfo.txt
+graph_info.json
+conan.lock
+conan_provider.cmake
+
+# ──────────────────────────────────────────────────────
+# Python artifacts
+# ──────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+.venv/
+
+# ──────────────────────────────────────────────────────
+# ML / model artifacts
+# ──────────────────────────────────────────────────────
+*.pt
+*.onnx
+*.engine
+*.trt
+*.plan
+data/output/
+
+# ──────────────────────────────────────────────────────
+# Docker
+# ──────────────────────────────────────────────────────
+# (Dockerfiles and docker-compose.yml ARE committed)
+# Ignore only generated/build-time Docker artifacts
+.docker/
+
+# ──────────────────────────────────────────────────────
+# Binary / reference docs — use Confluence or shared drive instead
+# ──────────────────────────────────────────────────────
+*.pdf
+*.docx
+
+# ──────────────────────────────────────────────────────
+# IDE
+# ──────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
