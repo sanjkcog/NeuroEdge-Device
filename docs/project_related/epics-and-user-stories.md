@@ -32,7 +32,7 @@
 
 **Phase:** 0 (MVP)  
 **Goal:** Establish the git repo, build system, container scaffolding, and CI pipeline so every subsequent phase has a green baseline to build on.  
-**Phase 0 Plan:** [phase-0-bootstrap.plan.md](plans/phase-0-bootstrap.plan.md)
+**Phase 0 Plan:** [phase-0-bootstrap.plan.md](../plans/phase-0-bootstrap.plan.md)
 
 ### US-01-01 — Repo & Build Scaffold
 
@@ -101,7 +101,7 @@
 
 **Phase:** 1 (MVP)  
 **Goal:** Establish the C++ runtime contract (sensor ABC, inference ABC) and the first real implementations (FileReplaySensor, OnnxRuntimeBackend CPU) connected via ZeroMQ inproc.  
-**Phase 1 Plan:** [phase-1-data-plane-skeleton.plan.md](plans/phase-1-data-plane-skeleton.plan.md)
+**Phase 1 Plan:** [phase-1-data-plane-skeleton.plan.md](../plans/phase-1-data-plane-skeleton.plan.md)
 
 ### US-02-01 — ModelArtifact C++ Contract Headers
 

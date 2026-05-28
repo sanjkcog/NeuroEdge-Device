@@ -3,7 +3,7 @@
 **Status:** DRAFT (architecture-locked, scope-locked) — needs validation against first OEM customer
 **Author:** Sanjeev Kumar (sanjeev.kumar@cognizant.com)
 **Created:** 2026-05-28
-**Source design doc:** [device_system_design_approach.md](reference/device_system_design_approach.md)
+**Source design doc:** [device_system_design_approach.md](../reference/device_system_design_approach.md)
 **Sibling project:** NeuroEdge Web (`C:\Sanjeev_E\NeuroEdge Web`)
 **Audience:** Sanjeev (solo eng + chief architect) and future contributors
 
@@ -192,7 +192,7 @@ References to *§3.3* of the design doc for full detail; this section is the req
 
 ### 9.d External Interface Layer (`ne-external`, Python)
 - **FR-9d-1:** Post-inference processor — Python plugin per use case; subscribes to MQTT `device/{id}/inference/result`.
-- **FR-9d-2:** Local UI dashboard — FastAPI + HTMX + Tailwind + Alpine.js + SSE; HTTPS on 8443; routes `/`, `/metrics`, `/sensors`, `/config`, `/admin`, `/logs`, `/auth`, `/grafana/` (reverse proxy on IQ-9/IQ-10 class). Every tile is an independent HTMX SSE fragment. See [design doc §3.4](reference/device_system_design_approach.md).
+- **FR-9d-2:** Local UI dashboard — FastAPI + HTMX + Tailwind + Alpine.js + SSE; HTTPS on 8443; routes `/`, `/metrics`, `/sensors`, `/config`, `/admin`, `/logs`, `/auth`, `/grafana/` (reverse proxy on IQ-9/IQ-10 class). Every tile is an independent HTMX SSE fragment. See [design doc §3.4](../reference/device_system_design_approach.md).
 - **FR-9d-2a:** Frame preview — `JpegPreviewSink` in `ne-data-plane` emits 1 fps downsampled JPEG with drawn boxes to MQTT `device/{id}/preview/jpeg`; dashboard renders via SSE. Configurable per use case via `device.preview_enabled` in Use Case YAML; default OFF for headless industrial, default ON for demos.
 - **FR-9d-3:** Cloud Agent pushes telemetry to AWS IoT Core (MQTT) and bulk artifacts to S3.
 - **FR-9d-4:** OTA Agent implements `IDeployTarget` interface (*§6.1*); MVP: `SshDockerComposeTarget`; v1: `+MenderTarget`, `+QualcommAiHubTarget`.
@@ -277,8 +277,8 @@ References to *§3.3* of the design doc for full detail; this section is the req
 
 | # | Phase | Description | Status | Parallel | Depends | PRP Plan |
 |---|---|---|---|---|---|---|
-| 0 | Bootstrap | git+CMake+Conan+CI scaffold; 4 image streams to ECR `:dev` | pending | - | - | [phase-0-bootstrap.plan.md](plans/phase-0-bootstrap.plan.md) |
-| 1 | Shared contracts + data plane skeleton | C++ header gen from JSON Schema; `ISensor` + `FileReplaySensor` + `RealSenseSensor` stub; `IInferenceBackend` + `OnnxRuntimeBackend` (CPU); ZMQ inproc | pending | - | 0 | [phase-1-data-plane-skeleton.plan.md](plans/phase-1-data-plane-skeleton.plan.md) |
+| 0 | Bootstrap | git+CMake+Conan+CI scaffold; 4 image streams to ECR `:dev` | pending | - | - | [phase-0-bootstrap.plan.md](../plans/phase-0-bootstrap.plan.md) |
+| 1 | Shared contracts + data plane skeleton | C++ header gen from JSON Schema; `ISensor` + `FileReplaySensor` + `RealSenseSensor` stub; `IInferenceBackend` + `OnnxRuntimeBackend` (CPU); ZMQ inproc | pending | - | 0 | [phase-1-data-plane-skeleton.plan.md](../plans/phase-1-data-plane-skeleton.plan.md) |
 | 2 | Control plane + bus + UI | `ne-control-plane` + `ne-external`; EMQX with mTLS; rule engine; local UI | pending | - | 1 | TBD |
 | 3 | Cloud emulation E2E | Terraform (ECR/S3/IoT/IAM/CloudWatch); QEMU ARM64 build pipeline; nightly TRT smoke on g5.xlarge | pending | - | 2 | TBD |
 
